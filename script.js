@@ -13,11 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const images = [
-        "image1.jpg",
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg",
-        "image5.jpg"
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp",
+        "9.webp",
+        "10.webp"
     ];
 
     const imagePath = "images/"; 
@@ -33,3 +38,78 @@ document.addEventListener("DOMContentLoaded", function() {
     paragraphElement.textContent = paragraphs[randomParagraphIndex];
     imageElement.src = imageUrl;
 });
+
+let isRunning = false;
+let isPaused = false;
+let timer;
+let timeLeft = 25 * 60;
+
+const timerDisplay = document.getElementById('timer');
+const startBtn = document.getElementById('startBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function updateTimer() {
+    timerDisplay.textContent = formatTime(timeLeft);
+}
+
+function startTimer() {
+    timer = setInterval(() => {
+        if (timeLeft > 0) {
+            timeLeft--;
+            updateTimer();
+        } else {
+            clearInterval(timer);
+            isRunning = false;
+            startBtn.textContent = 'Start';
+            pauseBtn.style.display = 'none';
+            alert('Time\'s up!');
+        }
+    }, 1000);
+}
+
+startBtn.addEventListener('click', () => {
+    if (!isRunning) {
+        if (isPaused) {
+            isPaused = false;
+            startTimer();
+        } else {
+            timeLeft = 25 * 60;
+            updateTimer();
+            startTimer();
+        }
+        isRunning = true;
+        startBtn.style.display = 'none';
+        pauseBtn.style.display = 'inline-block';
+    }
+});
+
+pauseBtn.addEventListener('click', () => {
+    if (isRunning) {
+        clearInterval(timer);
+        isPaused = true;
+        isRunning = false;
+        startBtn.textContent = 'Resume';
+        startBtn.style.display = 'inline-block';
+        pauseBtn.style.display = 'none';
+    }
+});
+
+resetBtn.addEventListener('click', () => {
+    clearInterval(timer);
+    isRunning = false;
+    isPaused = false;
+    timeLeft = 25 * 60;
+    updateTimer();
+    startBtn.textContent = 'Start';
+    startBtn.style.display = 'inline-block';
+    pauseBtn.style.display = 'none';
+});
+
+updateTimer();
