@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Clock with To-Do List</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+            background-image: url("/images/5.jpg");
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: background-image 1s ease-in-out;
+        }
+        .pomodoro {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        .pomodoro h2 {
+            margin: 0;
+        }
+        .pomodoro .controls {
+            margin-top: 10px;
+        }
+        .pomodoro button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .todo-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .todo-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .todo-list li {
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .todo-list button {
+            margin-left: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .todo-list input {
+            margin-top: 10px;
+            padding: 5px;
+            width: 100%;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5em;
+            color: white;
+        }
+        .notepad {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            width: 300px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .music-player {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 380px;
+            border: none;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="background" id="background"></div>
+    <div class="container">
+        
+        <div class="pomodoro">
+            <h2>Pomodoro Timer</h2>
+            <div id="clock">25:00</div>
+            <div class="controls">
+                <button id="start">Start</button>
+                <button id="pause">Pause</button>
+                <button id="reset">Reset</button>
+                <button id="edit">Edit</button>
+            </div>
+            <input type="number" id="edit-time" placeholder="" style="display:none;">
+            <div class="todo-list">
+                <h3>To-Do List</h3>
+                <ul id="todo-items">
+                    <li>Task 1 <button class="delete-task">Delete</button></li>
+                    <li>Task 2 <button class="delete-task">Delete</button></li>
+                </ul>
+                <input type="text" id="new-task" placeholder="New task...">
+                <button id="add-task">Add Task</button>
+            </div>
+        </div>
+       <div style="padding: 5px;"></div> <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/playlist/soundtrack/pl.u-9N9LXWNs1GN7dZg"></iframe>
+    </div>
+    <div class="header">
+        <span id="name">2008wbbv's Workroom</span>
+    </div>
+    
+    <div class="notepad">
+        <h4>Notepad</h4>
+        <textarea id="notepad-content" rows="10" cols="30" placeholder="Write your notes here..."></textarea>
+    </div>
+    
+    <script>
+        // Pomodoro Timer
+        const clockElement = document.getElementById('clock');
+        const startButton = document.getElementById('start');
+        const pauseButton = document.getElementById('pause');
+        const resetButton = document.getElementById('reset');
+        const editButton = document.getElementById('edit');
+        const editTimeInput = document.getElementById('edit-time');
+        const newTaskInput = document.getElementById('new-task');
+        const addTaskButton = document.getElementById('add-task');
+        const todoList = document.getElementById('todo-items');
+
+        let minutes = 25;
+        let seconds = 0;
+        let timer;
+        let isPaused = false;
+
+        function updateClock() {
+            let minutesDisplay = minutes < 10 ? '0' + minutes : minutes;
+            let secondsDisplay = seconds < 10 ? '0' + seconds : seconds;
+            clockElement.textContent = `${minutesDisplay}:${secondsDisplay}`;
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(timer);
+                    alert('Pomodoro finished!');
+                } else {
+                    minutes--;
+                    seconds = 59;
+                }
+            } else {
+                seconds--;
+            }
+        }
+
+        function startTimer() {
+            if (!isPaused) {
+                timer = setInterval(updateClock, 1000);
+            }
+            isPaused = false;
+        }
+
+        function pauseTimer() {
+            clearInterval(timer);
+            isPaused = true;
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            minutes = parseInt(editTimeInput.value) || 25;
+            seconds = 0;
+            clockElement.textContent = `${minutes < 10 ? '0' + minutes : minutes}:00`;
+            isPaused = false;
+        }
+
+        function showEditTimeInput() {
+            editTimeInput.style.display = 'inline';
+            editTimeInput.value = minutes;
+        }
+
+        function applyEditTime() {
+            const newTime = parseInt(editTimeInput.value);
+            if (newTime > 0) {
+                minutes = newTime;
+                seconds = 0;
+                clockElement.textContent = `${newTime < 10 ? '0' + newTime : newTime}:00`;
+                editTimeInput.style.display = 'none';
+            }
+        }
+
+        startButton.addEventListener('click', startTimer);
+        pauseButton.addEventListener('click', pauseTimer);
+        resetButton.addEventListener('click', resetTimer);
+        editButton.addEventListener('click', showEditTimeInput);
+        editTimeInput.addEventListener('blur', applyEditTime);
+
+        // To-Do List Management
+        function addTask() {
+            const taskText = newTaskInput.value.trim();
+            if (taskText) {
+                const li = document.createElement('li');
+                li.innerHTML = `${taskText} <button class="delete-task">Delete</button>`;
+                todoList.appendChild(li);
+                newTaskInput.value = '';
+            }
+        }
+
+        function deleteTask(e) {
+            if (e.target.classList.contains('delete-task')) {
+                e.target.parentElement.remove();
+            }
+        }
+
+        addTaskButton.addEventListener('click', addTask);
+        todoList.addEventListener('click', deleteTask);
+
+        // Initialize
+        clockElement.textContent = '25:00';
+    </script>
+    
+</body>
+</html>
