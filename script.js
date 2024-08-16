@@ -112,4 +112,5 @@ resetBtn.addEventListener('click', () => {
     pauseBtn.style.display = 'none';
 });
 
+
 updateTimer();
