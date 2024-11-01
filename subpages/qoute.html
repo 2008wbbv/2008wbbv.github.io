@@ -1,10 +1,57 @@
-<style>
-
-</style>
-<script src="script.js" defer></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote and Image</title>
+    <style>
+        /* Add any styles you want here */
+    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
   
-  <img id="random-image" src="" alt="Random Image" style="width: ;">
-   <p style="color: black;" id="random-paragraph"></p>
+  <img id="random-image" src="" style="width: 25%; height: 25%;">
+  <p style="color: black;" id="random-quote"></p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const quotes = [
+          "The only limit to our realization of tomorrow is our doubts of today.",
+          "Do not wait to strike till the iron is hot, but make it hot by striking.",
+          "Success is not how high you have climbed, but how you make a positive difference to the world.",
+          "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+          "The best way to predict the future is to create it.",
+          "Your time is limited, don't waste it living someone else's life.",
+          "The only way to do great work is to love what you do.",
+          "You miss 100% of the shots you don’t take.",
+          "Life is what happens when you're busy making other plans."
+      ];
+
+      const images = [
+          "/images/1.webp",
+          "/images/2.webp",
+          "/images/3.webp",
+          "/images/4.webp",
+          "/images/5.webp",
+          "/images/6.webp",
+          "/images/7.webp",
+          "/images/8.webp",
+          "/images/9.webp",
+          "/images/10.webp"
+      ];
+
+      const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+      const randomImageIndex = Math.floor(Math.random() * images.length);
+
+      const imageUrl = images[randomImageIndex];
+
+      const quoteElement = document.getElementById("random-quote");
+      const imageElement = document.getElementById("random-image");
+
+      quoteElement.textContent = quotes[randomQuoteIndex];
+      imageElement.src = imageUrl;
+    });
+  </script>
 </body>
+</html>
