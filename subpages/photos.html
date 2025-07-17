@@ -1,24 +1,58 @@
-<div class="photo-gallery">
-    <h2 class="gallery-title">Photo Gallery</h2>
-    <div class="photo-container">
-        <img src="placeholder.jpg" alt="Photo" class="photo">
-        <div class="photo-info">
-            <div class="photo-date">Date</div>
-            <div class="photo-caption">Caption</div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ben's Photography</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <div class="title">Ben's Photography</div>
+    <nav>
+      <a href="https://instagram.com/benz0.png" target="_blank">Instagram</a>
+      <button id="theme-toggle">🌓</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="../photos/benz0.png" alt="Photography by Ben" class="hero-img" />
+    <div class="text-block">
+      <h1>Welcome</h1>
+      <p>I share photos of the world through my optics. This is a sample from my feed. Click below to see more on Instagram.</p>
+      <div class="highlights">
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
+            <img src="photographyphotos/1.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/2.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/3.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/4.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/5.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/6.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/7.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/8.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/9.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/10.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/11.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+            <img src="photographyphotos/12.jpg" style="max-width: 280px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;" />
+          </div>
+
+      </div>
     </div>
-    <div class="photo-container">
-        <img src="placeholder.jpg" alt="Photo" class="photo">
-        <div class="photo-info">
-            <div class="photo-date">Date</div>
-            <div class="photo-caption">Caption</div>
-        </div>
-    </div>
-    <div class="photo-container">
-        <img src="placeholder.jpg" alt="Photo" class="photo">
-        <div class="photo-info">
-            <div class="photo-date">Date</div>
-            <div class="photo-caption">Caption</div>
-        </div>
-    </div>
-</div>
+  </section>
+
+  <div class="button-row">
+    <a href="https://instagram.com/YOUR_USERNAME" class="round-button" target="_blank">View on Instagram</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Ben V. All rights reserved.
+  </footer>
+
+  <script>
+    // Light/Dark mode toggle
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>
