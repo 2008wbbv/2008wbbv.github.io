@@ -1,55 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ben Vaccaro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  
-  <body>      
-    <div style="margin-left: 35%;">
-    <div style="padding: 50px;"></div>
+<body>
+  <header>
+    <div class="title"><a href="/">Ben Vaccaro</a></div>
+    <nav>
+      <a href="subpages/find.html">about</a>
+      <a href="subpages/faq.html">faq</a>
+      <a href="subpages/blogy.html">blog</a>
+      <a href="subpages/projects.html">projects</a>
+      <a href="subpages/resume.pdf">resume</a>
+      <a href="subpages/contact.html">contact</a>
+      <a href="subpages/etc.html">etc</a>
+      <button id="theme-toggle">🌓</button>
+    </nav>
+  </header>
 
-      <h1></h1>
-    <p>
-    <font size="7"><i><b><a href="https://www.linkedin.com/in/benjamin-vaccaro/">Ben Vaccaro</a>/<a href="subpages/2008wbbv.html">2008wbbv</a></b></i></font> <br>
-    <br>
-    <img src="https://i.pinimg.com/736x/6a/ec/ab/6aecab30ebfd3258e7613ebde2796366.jpg" style="width:560px;"><br>
-    <br>
-    <span id="timezone">
-    <i>  
+  <main class="hero">
+    <div>
+      <img src="https://i.pinimg.com/736x/6a/ec/ab/6aecab30ebfd3258e7613ebde2796366.jpg" alt="Photography" class="hero-img" />
+    </div>
 
-    </i>
-    </span>
-    <br><br>
+    <div class="text-block">
+      <h1>
+        <a href="https://www.linkedin.com/in/benjamin-vaccaro/">Ben Vaccaro</a> /
+        <a href="subpages/2008wbbv.html">2008wbbv</a>
+      </h1>
+      <p>
+        I'm a student, builder, and creative technologist exploring engineering through code, circuits, and self-driven projects. I’m passionate about open hardware, STEM education, and real-world problem-solving.
+      </p>
 
-    <a href="subpages/find.html">about</a> //
-    <a href="subpages/faq.html">faq</a> //
-    <a href="subpages/blogy.html">blog (WIP)</a> //
-    <a href="subpages/Resume.pdf">resume</a> //
-    <a href="subpages/contact.html">contact</a> // <a href="/subpages/projects.html">projects</a> // <a href="subpages/etc.html">etc</a>
+      <div class="highlights">
+        <span class="highlight-tag">Arduino</span>
+        <span class="highlight-tag">Robotics</span>
+        <span class="highlight-tag">SeaPerch</span>
+        <span class="highlight-tag">NSLI-Y</span>
+        <span class="highlight-tag">MIT Goals</span>
+        <span class="highlight-tag">Hackathons</span>
+      </div>
 
-    <br>
-    <br>
+      <div style="margin-top: 30px;">
+        <a href="//24timezones.com/Boston/time" class="clock24" id="tz24-1722618473-c143-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMCIsInNob3dzZWNvbmRzIjoiMCIsInNob3d0aW1lem9uZSI6IjEiLCJ0eXBlIjoiZCIsImxhbmciOiJlbiJ9" title="local time in Boston" target="_blank" rel="nofollow">Boston Time</a>
+        <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+      </div>
 
 
-    </p>
-    <a href="//24timezones.com/Boston/time" style="text-decoration: none" class="clock24" id="tz24-1722618473-c143-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMCIsInNob3dzZWNvbmRzIjoiMCIsInNob3d0aW1lem9uZSI6IjEiLCJ0eXBlIjoiZCIsImxhbmciOiJlbiJ9" title="local time in Boston" target="_blank" rel="nofollow">Boston time</a>
-    <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>     <div style="padding: 105px;"></div> </div>
+  </main>
 
-    <a href="https://github.com/2008wbbv/2008wbbv.github.io"><i> Source Code</i></a><div></div>
-    <a href="subpages/admin.html"><i>Admin Portal: online </i></a>
+  <div class="button-row">
+    <a href="https://example.com/1" class="round-button">Button 1</a>
+    <a href="https://example.com/2" class="round-button">Button 2</a>
+    <a href="https://example.com/3" class="round-button">Button 3</a>
+    <a href="https://example.com/4" class="round-button">Button 4</a>
+  </div>
 
-    
   <footer>
     <p>&copy; Ben Vaccaro 2024</p>
   </footer>
-  <script src="script.js"></script>
-    <!-- begin wwww.htmlcommentbox.com -->
-     <div id="HCB_comment_box" style="margin-left: 10px; width: 300px;"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-     <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24v0%2FXZiIqUSZc1ljFf7A9F1"+"&opts=16798&num=10&ts=1722648847236");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-    <!-- end www.htmlcommentbox.com -->
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
