@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | place holders for now </title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="title"></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/pages/projects.html">Projects</a>
+      <button id="theme-toggle" onclick="document.body.classList.toggle('dark')">Toggle Theme</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="/photos/hero.jpg" alt="Profile" class="hero-img" />
+    <div class="text-block">
+      <h1>Your Name</h1>
+      <p>
+        A short technical or personal bio about your interests — coding, electronics, design, or art.
+      </p>
+      <div class="highlights">
+        <span class="highlight-tag">Arduino</span>
+        <span class="highlight-tag">Photography</span>
+        <span class="highlight-tag">AI/ML</span>
+        <span class="highlight-tag">Web Dev</span>
+      </div>
+      <div class="links">
+        <a href="https://github.com/">GitHub</a>
+        <a href="mailto:you@example.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="button-row">
+    <a href="/pages/projects.html" class="round-button">Projects</a>
+    <a href="/pages/photography.html" class="round-button">Photography</a>
+    <a href="/pages/about.html" class="round-button">About Me</a>
+  </div>
+
+  <section id="projects">
+    <h2 style="font-size: 1.6rem; margin-top: 60px;">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Smart Plant Monitor</h3>
+        <p>Uses Arduino sensors to detect moisture and alert with LED/buzzer.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Photogram Gallery</h3>
+        <p>A minimalistic online gallery styled after vintage film rolls.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>AI Text Generator</h3>
+        <p>Lightweight GPT wrapper that generates custom dialogue using JS + Python backend.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    // Toggle light/dark theme based on user click
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>
